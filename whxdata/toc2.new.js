@@ -1,1 +1,1 @@
-(function() {    var toc =  [{"name":"How to bulk edit alarm help","type":"item","tilePath":"","description":"Details instructions on how to bulk edit alarm help parameters.","url":"DeltaV/How_to_bulk_edit_alarm_help.htm"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();
+(function() {    var toc =  [{"name":"How to bulk edit alarm help","type":"item","tilePath":"","description":"","url":"DeltaV/How_to_bulk_edit_alarm_help.htm"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();

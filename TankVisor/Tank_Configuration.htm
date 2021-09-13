@@ -36,16 +36,17 @@
           <div class="rh-layout-selectdetails" id="rh-selectdetails"></div>
           <div class="RH-LAYOUT-CENTERPANEL-topic-box" id="rh-topic">
   <h1 id="h">Tank Configuration</h1>
-  <p><em>This article references <a href="../../../../TankVisor-Help-Robo/contents/Strapping_Tables.htm">Strapping Tables</a>, <a href="../../../../TankVisor-Help-Robo/contents/Tank_Detail.htm">Tank Detail</a>, and <a href="../../../../TankVisor-Help-Robo/contents/TankMini.htm">TankMini</a>.</em></p>
+  <p><em>This article references <a href="Strapping_Tables.htm">Strapping Tables</a>, <a href="Tank_Detail.htm">Tank Detail</a>, and <a href="tankmini.htm">TankMini</a>.</em></p>
   <h4>What is Tank Configuration and what references it?</h4>
   <p>The Tank Configuration panel contains all of the information for how a specific tank should communicate with the DCS, including which &#39;point.parameters&#39; should be used for I/O.</p>
-  <p>When appropriate and valid information is entered into the Tank Configuration panel, TankVisor will use this information along with the <a href="#" data-popovertext=" " data-rhwidget="TextPopOver"></a> and <a href="#" data-popovertext=" " data-rhwidget="TextPopOver"></a> maps to determine which value to output back to the DCS.</p>
-  <p>A full list of the parameter definitions can be found <a href="../../../../TankVisor-Help-Robo/contents/Tank_Configuration.htm">Tank Configuration</a>.</p>
+  <p>When appropriate and valid information is entered into the Tank Configuration panel, TankVisor will use this information along with the <a href="Strapping_Tables.htm"><em>Strapping Table</em></a> and <a href="Strapping_Tables.htm"><em>Hi-Res Table</em></a> maps to determine which value to output back to the DCS.</p>
+  <p>A full list of the parameter definitions can be found <a href="Tank_Configuration.htm">Tank Configuration</a>.</p>
   <p> </p>
   <h4>Where can it be found?</h4>
-  <p>The Tank Configuration panel can be found on the left side of any <a href="../../../../TankVisor-Help-Robo/contents/Tank_Detail.htm">Tank Detail</a> screen.</p>
+  <p>The Tank Configuration panel can be found on the left side of any <a href="Tank_Detail.htm">Tank Detail</a> screen.</p>
   <p> </p>
   <p><img src="../assets/images/image (8).png"/></p>
+  <p> </p>
   <h4>Configuration definitions</h4>
   <table cellpadding="1" style="border-spacing:1px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:outset;border-collapse:collapse;width:100%;font-weight:100;text-align:center">
     <colgroup style="font-weight: normal">
@@ -123,9 +124,10 @@
             <br/>
             If the value entered in &quot;<em>Tank Mode To Enable Logic</em>&quot; is equal to the returned DCS value from the qualified &quot;<em>Enable Logic Path</em>&quot;, then and only then will the strapping logic for this tank will execute and the <em></em>&quot;<em>Logic Enabled</em>&quot; TextBox will indicate <em>True<u></u></em>.
           </p>
-          <p>If the above conditions are not met, then the TextBox will display <em>False</em> as well as show a dark grey border around the output to the <a href="../../../../TankVisor-Help-Robo/contents/TankMini.htm"><u>TankMini</u></a> display.<br/>
+          <p>If the above conditions are not met, then the TextBox will display <em>False</em> as well as show a dark grey border around the output to the <a href="tankmini.htm">TankMini</a> display.<br/>
             <br/>
-             <img src="../assets/images/image9.png"/>
+             <br/>
+            <img src="../assets/images/image9.png"/>
           </p>
         </td>
       </tr>
@@ -215,7 +217,7 @@
           </p>
           <p>(<em>Ex. if the value &quot;0&quot; is entered into this textbox, the result of &quot;Scratch Mode Path&quot; must be &quot;0&quot; for the Scratch Pad logic to be in &quot;To <u>Volume</u>&quot; mode.</em>)</p>
           <p> </p>
-          <p>The &quot;To Volume&quot; mode indicates that the Scratch Pad logic will take the DCS result values for &quot;<em>[Input Scratch PointName]/[Input Scratch Parameter Path]</em>&quot; and &quot;<em>[High Res. Input Scratch PointName]/[High Res. Input Scratch Param Path]</em>&quot; (<em>Ex. Inches, 1/16th inches, respectively</em>) and determine the output to the DCS using the <a href="../../../../TankVisor-Help-Robo/contents/Strapping_Tables.htm">Strapping Tables</a>. This value is sent as an output to &quot;[<em>Output Scratch PointName]/[Output Scratch Parameter Path]</em>&quot; (<i>Ex. Volume</i>).</p>
+          <p>The &quot;To Volume&quot; mode indicates that the Scratch Pad logic will take the DCS result values for &quot;<em>[Input Scratch PointName]/[Input Scratch Parameter Path]</em>&quot; and &quot;<em>[High Res. Input Scratch PointName]/[High Res. Input Scratch Param Path]</em>&quot; (<em>Ex. Inches, 1/16th inches, respectively</em>) and determine the output to the DCS using the <a href="Strapping_Tables.htm">Strapping Tables</a>. This value is sent as an output to &quot;[<em>Output Scratch PointName]/[Output Scratch Parameter Path]</em>&quot; (<i>Ex. Volume</i>).</p>
         </td>
       </tr>
       <tr style="">
@@ -230,7 +232,7 @@
           </p>
           <p>(<em>Ex. if the value &quot;1&quot; is entered into this textbox, the result of &quot;Scratch Mode Path&quot; must be &quot;1&quot; for the Scratch Pad logic to be in &quot;To <u>Metric</u>&quot; mode.</em>)</p>
           <p> </p>
-          <p>The &quot;To Metric&quot; mode indicates that the Scratch Pad logic will take the DCS result values for &quot;<em>[<em>Output Scratch PointName]/[Output Scratch Parameter Path]</em></em>&quot; (<em>Ex. Volume</em>) and perform an inverse calculation on the <a href="../../../../TankVisor-Help-Robo/contents/Strapping_Tables.htm">Strapping Table</a><a href="../../../../TankVisor-Help-Robo/contents/Strapping_Tables.htm">s</a>. The result of this inverse calculation is sent as an output to &quot;<em>[<em>Input Scratch PointName]/[Input Scratch Parameter Path]</em></em>&quot; (<em>Ex. Inches</em>).</p>
+          <p>The &quot;To Metric&quot; mode indicates that the Scratch Pad logic will take the DCS result values for &quot;<em>[<em>Output Scratch PointName]/[Output Scratch Parameter Path]</em></em>&quot; (<em>Ex. Volume</em>) and perform an inverse calculation on the <a href="Strapping_Tables.htm">Strapping Tables</a>. The result of this inverse calculation is sent as an output to &quot;<em>[<em>Input Scratch PointName]/[Input Scratch Parameter Path]</em></em>&quot; (<em>Ex. Inches</em>).</p>
           <p>(<em>Ex. if in &quot;To Metric&quot; mode, and the Volume read is &quot;29.4&quot;, in the example below the Inches written back to the DCS would be &quot;18&quot;</em>)<br/>
             <img src="../assets/images/image10.png"/>
           </p>

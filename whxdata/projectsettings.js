@@ -7,7 +7,7 @@ rh._.exports(defaultTopic);
 rh.consts('DEFAULT_TOPIC', encodeURI("TankVisor/TankVisor_Help.htm"));
 rh.consts('HOME_FILEPATH', encodeURI('index.htm'));
 rh.consts('START_FILEPATH', encodeURI('index.htm'));
-rh.consts('HELP_ID', '266f033d-b43d-43d8-9501-60ef38dc8c5b' || 'preview');
+rh.consts('HELP_ID', 'd687948a-f8f7-4ea2-bcf7-031c65173433' || 'preview');
 rh.consts('LNG_SUBSTR_SEARCH', 0);
 
 model.publish(rh.consts('KEY_LNG_NAME'), "en");

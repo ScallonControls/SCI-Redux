@@ -59,7 +59,7 @@
 .RH-LAYOUT-CENTERPANEL-topic-box span.glosstext, .RH-LAYOUT-FOOTER-container span.glosstext {
   font-style: italic;
   font-weight: normal;
-  color: #0000ff;
+  color: #00BDFF;
 }
 .RH-LAYOUT-CENTERPANEL-topic-box ul, .RH-LAYOUT-FOOTER-container ul {
   margin-top: 0px;
@@ -320,4 +320,7 @@
   margin-right: var(--prefix-gap);
   width: var(--prefix-size);
   overflow: hidden;
+}
+.RH-LAYOUT-CENTERPANEL-topic-box a:link, .RH-LAYOUT-FOOTER-container a:link {
+  color: #00A8FF;
 }
