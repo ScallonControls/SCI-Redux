@@ -1,0 +1,1 @@
+(function() {    var toc =  [{"name":"DeltaV","type":"book","tilePath":"","key":"toc1"},{"name":"TankVisor","type":"book","tilePath":"","key":"toc3"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();

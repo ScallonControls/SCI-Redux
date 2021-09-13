@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes"/>
+  <meta name="version" content="2020.0.0"/>
+  <link rel="StyleSheet" href="../template/styles/topic.min.css" type="text/css"/>
+  <link rel="StyleSheet" data-skin="true" type="text/css" href="../template/Dark/layout.css"/>
+  <link rel="StyleSheet" data-skin="true" href="../template/Dark/userstyles.css" type="text/css"/>
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Alarm Banner</title>
+  <meta name="topic-status" content="Draft"/>
+  <link rel="stylesheet" type="text/css" href="../assets/css/default.css"/>
+</head>
+
+<body class="rh-BODY-wrapper">
+  <div class="cookie-widget-holder" id="cookie-status-widget-holder"></div>
+  <div class="RH-LAYOUT-HEADER-skip-content-container" id="skip-to-content"></div>
+  <header class="RH-LAYOUT-HEADER-container" role="banner">
+    <div class="RH-LAYOUT-HEADER-logo-box  ">
+      <div class="RH-LAYOUT-HEADER-logo" id="logo-holder"></div>
+      <div class="RH-LAYOUT-HEADER-title" id="topic-title-holder"></div>
+    </div>
+    <div class="RH-LAYOUT-HEADERMENU-container" id="header-menu"></div>
+  </header>
+  <main role="main" class="RH-LAYOUT-BODY-container">
+    <div class="RH-LAYOUT-SEARCHRESULTS" id="rh-searchresults"></div>
+    <div class="RH-LAYOUT-LEFTPANEL-container" id="rh-leftpanel"></div>
+    <div class="rh-layout-BODY-main" id="rh-layout-main">
+      <div class="RH-LAYOUT-TOOLBAR-toolbar-box" id="rh-toolbar"></div>
+      <div class="rh-layout-BODY-body">
+        <div class="RH-LAYOUT-CENTERPANEL-container">
+          <div class="rh-layout-selectdetails" id="rh-selectdetails"></div>
+          <div class="RH-LAYOUT-CENTERPANEL-topic-box" id="rh-topic">
+  <h1>Alarm Banner</h1>
+  <p><i>This article references <a href="../../../../TankVisor-Help-Robo/contents/Tank_Configuration.htm#h">Tank Configuration</a>.</i></p>
+  <p> </p>
+  <h4>What is the Alarm Banner?</h4>
+  <p>The Alarm Banner provides the user with up to 10 descriptive live alerts on TankVisor&#39;s process. These alarms are critical to TankVisor&#39;s operations and should be addressed as soon as possible.</p>
+  <p> </p>
+  <h4><strong>Where is the Alarm Banner?</strong></h4>
+  <p>The Alarm Banner can be found on the bottom of the TankVisor application and only appears when an alarm is active and will only go away once the alarm has been acknowledged and fixed.<br/>
+    If an alarm is acknowledged and is still <em>active</em> then it will reappear within the Alarm Banner.</p>
+  <p>In addition to above, the Alarm Banner will not appear within the first 90 seconds of TankVisor&#39;s startup. This is to give the application time to subscribe to all OPC values.</p>
+  <p> </p>
+  <h4>What type of alarms are displayed?</h4>
+  <p>Currently the Alarm Banner will display an alarm under the following conditions:</p>
+  <ul class="Disc">
+    <li>The <a href="../../../../TankVisor-Help-Robo/contents/Tank_Configuration.htm#Logic_Enabled">Logic_Enabled</a> bit is resulting in the same value of <em>&quot;Both False&quot;</em> or <em>&quot;Both True&quot;</em> in both High and Low roof modes for a corresponding tank.</li>
+    <li>The <em></em><a href="../../../../TankVisor-Help-Robo/contents/Tank_Configuration.htm#Enable_Logic_Path">Enable_Logic_Path</a> value (often TANK_MODE) is resulting with a non-boolean value.</li>
+    <li>If any value within a Tank is reading a bad value of <em>&quot;###&quot;</em>.</li>
+  </ul>
+  <p><img src="../assets/images/image33.png"/></p>
+
+</div>
+          <div class="RH-LAYOUT-BRS-container" id="rh-brs"></div>
+        </div>
+        <div class="RH-LAYOUT-RIGHTPANEL-container" id="rh-rightpanel"></div>
+      </div>
+    </div>
+  </main>
+  <footer role="contentinfo" class="RH-LAYOUT-FOOTER-container" id="rh-footer"></footer>
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = ".."
+    gCommonRootRelPath = ".."
+    gTopicId = "2.3.0_2"
+  
+//]]></script>
+
+
+  <script src="../template/scripts/topicpage.js"></script>
+  <script src="../whxdata/layoutconfig.js"></script>
+  <script src="../whxdata/brsdata.js"></script>
+  
+    
+
+            
+
+
+</body></html>
