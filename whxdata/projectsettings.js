@@ -2,12 +2,12 @@
 (function() {
 rh = window.rh;
 model = rh.model;
-var defaultTopic = "TankVisor/TankVisor_Help.htm";
+var defaultTopic = "DeltaV/DeltaV_Help.htm";
 rh._.exports(defaultTopic);
-rh.consts('DEFAULT_TOPIC', encodeURI("TankVisor/TankVisor_Help.htm"));
+rh.consts('DEFAULT_TOPIC', encodeURI("DeltaV/DeltaV_Help.htm"));
 rh.consts('HOME_FILEPATH', encodeURI('index.htm'));
 rh.consts('START_FILEPATH', encodeURI('index.htm'));
-rh.consts('HELP_ID', 'd687948a-f8f7-4ea2-bcf7-031c65173433' || 'preview');
+rh.consts('HELP_ID', 'd0a9c223-200e-43f9-91af-e88e8d78ee6a' || 'preview');
 rh.consts('LNG_SUBSTR_SEARCH', 0);
 
 model.publish(rh.consts('KEY_LNG_NAME'), "en");
@@ -17,7 +17,7 @@ model.publish(rh.consts('KEY_LNG'), {"BreadcrumbStart":"Home:","BrsNextButton":"
 model.publish(rh.consts('KEY_HEADER_TITLE'), "SCI Redux");
 model.publish(rh.consts('PDF_FILE_NAME'), "");
 model.publish(rh.consts('MAX_SEARCH_RESULTS'), "20");
-model.publish(rh.consts('KEY_SKIN_FOLDER_NAME'), "Dark");
+model.publish(rh.consts('KEY_SKIN_FOLDER_NAME'), "Scallon_Dark");
 model.publish(rh.consts('CHAT_API_SESSION_TOKEN'), "");
 model.publish(rh.consts('CHAT_API_PROJ_ID'), "");
 

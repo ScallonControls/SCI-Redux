@@ -1,1 +1,1 @@
-(function() {    var toc =  [{"name":"Procedures","type":"book","tilePath":"","key":"toc2"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();
+(function() {    var toc =  [{"name":"DeltaV Help","type":"item","tilePath":"assets/images/Scallon_Logo_Small.png","description":"","tocIcon":"assets/images/Scallon_Logo_Small.png","url":"DeltaV/DeltaV_Help.htm","tocid":0},{"name":"Procedures","type":"book","tilePath":"","key":"toc2"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();

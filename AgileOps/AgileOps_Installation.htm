@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes"/>
+  <meta name="version" content="2020.0.0"/>
+  <link rel="StyleSheet" href="../template/styles/topic.min.css" type="text/css"/>
+  <link rel="StyleSheet" data-skin="true" type="text/css" href="../template/Scallon_Dark/layout.css"/>
+  <link rel="StyleSheet" data-skin="true" href="../template/Scallon_Dark/userstyles.css" type="text/css"/>
+  
+<link rel="stylesheet" type="text/css" href="../assets/css/default.css"/><link rel="stylesheet" type="text/css" href="../assets/css/book.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>AgileOps Installation</title>
+  <meta name="topic-status" content="Draft"/>
+  <meta name="template" content="../assets/masterpages/tutorial-book.htt"/>
+  <meta name="rh-authors" content="Joey Williams"/>
+  <meta name="topic-comment" content="Procedure for performing an installation of the AgileOps software."/>
+  
+  
+</head>
+
+<body class="rh-BODY-wrapper">
+  <div class="cookie-widget-holder" id="cookie-status-widget-holder"></div>
+  <div class="RH-LAYOUT-HEADER-skip-content-container" id="skip-to-content"></div>
+  <header class="RH-LAYOUT-HEADER-container" role="banner">
+    <div class="RH-LAYOUT-HEADER-logo-box  ">
+      <div class="RH-LAYOUT-HEADER-logo" id="logo-holder"></div>
+      <div class="RH-LAYOUT-HEADER-title" id="topic-title-holder"></div>
+    </div>
+    <div class="RH-LAYOUT-HEADERMENU-container" id="header-menu"></div>
+  </header>
+  <main role="main" class="RH-LAYOUT-BODY-container">
+    <div class="RH-LAYOUT-SEARCHRESULTS" id="rh-searchresults"></div>
+    <div class="RH-LAYOUT-LEFTPANEL-container" id="rh-leftpanel"></div>
+    <div class="rh-layout-BODY-main" id="rh-layout-main">
+      <div class="RH-LAYOUT-TOOLBAR-toolbar-box" id="rh-toolbar"></div>
+      <div class="rh-layout-BODY-body">
+        <div class="RH-LAYOUT-CENTERPANEL-container">
+          <div class="rh-layout-selectdetails" id="rh-selectdetails"></div>
+          <div class="RH-LAYOUT-CENTERPANEL-topic-box" id="rh-topic">
+  <div>
+    <h1 class="scallon-header"><br/>
+      <span data-field="title" data-format="default">AgileOps Installation</span>
+    </h1>
+  </div>
+  <div data-region="references">
+    <p>This article was last updated <span data-constant="TRUE" data-field="date" data-format="default">2021-09-17</span>. </p>
+  </div>
+  <div>
+  <p><em>Requirements:</em><em></em></p>
+  <ul class="Disc">
+    <li><em>Windows Server 2016</em></li>
+    <li><em>.NET Framework </em><em>4.6 (Should be preinstalled w/ Server 2016)</em></li>
+    <li><em>.NET Framework 3.5</em></li>
+    <li><em>ASP.NET 4.6</em></li>
+    <li><em>TCP Port Sharing</em></li>
+    <li><em>WOW64 Support</em></li>
+  </ul>
+  <h4>Prerequisites prior to AgileOps software installation.</h4>
+  <ol class="Decimal">
+    <li>Create a new local user called &quot;AOPS&quot; with the customer provided password. If on DeltaV, this account must be created in User Manager.
+      <ol>
+        <li>Ensure the user&#39;s password is set to never expire.</li>
+        <li>Assign this user to be within the &quot;Administrators&quot; group.</li>
+      </ol>
+    </li>
+    <li>Run the provided &quot;Firewall Rules.bat&quot; file in the Prerequisites folder, this applies the following rules:
+      <ol>
+        <li>DCOM Rules</li>
+        <li>SQL Server Rules</li>
+        <li>AgileOps Services Rules</li>
+      </ol>
+    </li>
+    <li>At this time, please ensure that all listed items in the &quot;Requirements&quot; section are added or installed.</li>
+    <li>Add the IIS Web Server Role Service. <em>Remember to accept any required dependencies.</em>
+      <ol>
+        <li>Basic Authentication</li>
+        <li>Windows Authentication</li>
+        <li>.NET Extensibility 4.6</li>
+        <li>ASP.NET 4.6</li>
+      </ol>
+    </li>
+    <li>Install licensed SQL Server 2016 as a new stand-alone SQL installation.
+      <ol>
+        <li>Include the following
+          <ol>
+            <li>Full Text Services</li>
+            <li>Integration Services</li>
+            <li>Mixed Mode Authentication; Enter password to &quot;AOPS&quot; user.</li>
+            <li>SQL Server Agent Statup Type set to &quot;Automatic&quot;</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>Install latest Service Pack (SP2 at the time of writing)</li>
+    <li>Install SQL Server Management Studio.
+      <ol>
+        <li>You do not need to restart the machine after installation. This will be done at a later step.</li>
+      </ol>
+    </li>
+    <li>Configure SQL Server.
+      <ol>
+        <li>Under SQL Server Network Configuration &gt; Protocols for MSSQLSERVER
+          <ol>
+            <li>Ensure Named Pipes is enabled.</li>
+            <li>Ensure TCP/IP is enabled.
+              <ol>
+                <li>Under Properties for TCP/IP, open the IP Addresses tab and ensure IP2 is enabled.</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>In SQL Server Configuration Manager, under SQL Server Services, restart the SQL Server (MSSQLSERVER) service.</li>
+    <li>Login to SQL Server Management Studio and open the properties for the SQL Server connection.
+      <ol>
+        <li>Ensure that the Server Authentication settings is set to <em>&quot;</em><em>SQL Server and Windows Authentication mode&quot;</em></li>
+        <li>Restart the SQL Server.
+          <ol>
+            <li>Right click the SQL Server node and click &quot;Restart&quot;</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>Install the additional Prerequisite media provided in the installation disc/drive.
+      <ol>
+        <li>OPC Core Components Redistributable</li>
+        <li>OPC Remote
+          <ol>
+            <li>A prompt titled &quot;Default DeltaV OPC Server&quot; will appear.<br/>
+              Enter the machine&#39;s host name that is the OPC DA server.  <em>(This is likely an app station or ProPlus in the DletaV environment.)</em></li>
+            <li>A prompt titled &quot;DeltaV Server Password&quot; will appear.<br/>
+              Enter the DeltaVAdmin password.</li>
+          </ol>
+        </li>
+        <li>Sentinel LDK Runtime
+          <ol>
+            <li>Located under &quot;HASP Driver&quot; folder.</li>
+            <li>Extract the Setup zip file and then run the HASP Setup application.</li>
+          </ol>
+        </li>
+        <li>System CLR Types for SQL Server</li>
+      </ol>
+    </li>
+    <li>Create SQL Database for AgileOps
+      <ol>
+        <li>Using the scripts provided in the installation media (found in the &quot;DatabaseScripts&quot; folder), execute the following scripts:<br/>
+          <em>These scripts must be ran in the order that is listed below.<br/>
+            To execute these scripts, open them within MS SQL Server Management Studio as Database Engine and click the &quot;Execute&quot; button.</em>
+          <ol>
+            <li>Create AOPS User (SQL Authentication)</li>
+            <li>Create AOPS Database</li>
+            <li>Create AOPS Database Schema</li>
+            <li>Create AOPS Required Objects</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>Install SQL Maintenance Plan
+      <ol>
+        <li>Open MS SQL Server Management Studio as Integration Services.</li>
+        <li>Under Stored Packages &gt; MSDB, right click on &quot;Maintenance Plans&quot; and click &quot;Import Package&quot;.</li>
+        <li>For Package path, browse to and select the &quot;Maintenance Plan.DTSX&quot; file provided in the Installation Media.</li>
+      </ol>
+    </li>
+    <li>Disconnect from MS SQL SMS and reconnect w/ Database Engine.
+      <ol>
+        <li>In the Object Explorer, browse to SQL Server &gt; Management &gt; Maintenance Plans.</li>
+        <li>Select the &quot;Maintenance Plan&quot; object and then click File &gt; Open &gt; File... </li>
+        <li>Browse to the Maintenance Plan folder in the installation media.<br/>
+          <em>(Should be where you found the Maintenance Plan.DTSX file.</em>
+        </li>
+        <li>Select the following files and then click then select &quot;Open&quot; to proceed.
+          <ol>
+            <li>Schedule Daily Log Backup &amp; Shrink</li>
+            <li>Schedule Monthly Full Backup</li>
+            <li>Schedule Weekly Differential Backup</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>Open the Schedule Monthly Full Backup window that should now be open and manually execute the script.<br/>
+      <i>If it is not automatically open, you can click the icon below to select the correct window.</i>
+      <ol>
+        <li><img height="117" src="../assets/images/image7.png" width="631"/></li>
+      </ol>
+    </li>
+    <li>Proceed to do Step 15 for the Weekly backup followed by the Daily backup.</li>
+    <li>Ensure that the AOPS username and password is setup properly in the Maintenance Plan&#39;s connection properties.
+      <ol>
+        <li>Right click on the &quot;Maintenance Plan&quot; object in Object Explort and select &quot;Refresh&quot;. Right click again and select &quot;Modify&quot;.</li>
+        <li>Select Manage Connections at the top of the new &quot;Maintenance Plan&quot; window.</li>
+        <li>Select the &quot;Local server connection&quot; entry and click the &quot;Edit&quot; button.</li>
+        <li>Ensure the &quot;Use a specific user name and password&quot; radio button is selected and that AOPS username and password are entered here correctly.</li>
+      </ol>
+    </li>
+    <li>Save your progress in MS SQL SMS. (File &gt; Save All)</li>
+  </ol>
+  <p> </p>
+  <h4>AgileOps Components Installation</h4>
+  <ol class="Decimal">
+    <li>Install the components listed below in the order they&#39;re listed:
+      <ol>
+        <li>Core Components</li>
+        <li>Connections</li>
+        <li>Server Components<br/>
+          <em>When prompted, enter in the AOPS username and password.<br/>
+            Note that the AOPS user must be entered in as &quot;.\AOPS&quot;</em>
+          <ol>
+            <li>Service (ServerComponents Setup)</li>
+            <li>AutoDiscovery</li>
+            <li>Connection Services</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+  <h4>Web Server (IIS) Preparation for AgileOps</h4>
+  <ol class="Decimal">
+    <li>Navigate to the directory &quot;C:\Program Files(x86)\Prosys, Inc\AgileOps\&quot; and create a new folder called &quot;HMI&quot;.</li>
+    <li>Open the Installation Media and browse inside of the &quot;WebApplications&quot; folder.</li>
+    <li>Copy the entirety of the contents with the &quot;WebApplications&quot; folder and pose them within the newly created &quot;HMI&quot; folder.</li>
+    <li>Within the HMI folder, search &quot;App_Data&quot; on the top right of File Explorer.</li>
+    <li>Right click each &quot;App_Data&quot; folder that appear in the results (Should be 3 folders) and add &quot;NETWORK SERVICE&quot; to the Security settings w/ Full Control.<img height="572" src="../assets/images/image8.png" width="710"/></li>
+  </ol>
+  <p> </p>
+  <h4>Configure Web Server for AgileOps (IIS)</h4>
+  <ol class="Decimal">
+    <li>Open IIS.</li>
+    <li>Add Application Pool named &quot;AgileOps&quot; to the &quot;Application Pools&quot; object.
+      <ol>
+        <li>Select .NET CLR Version v4.0.X</li>
+        <li>Select Managed pipeline mode as Classic</li>
+        <li>Have the checkbox enabled for &quot;Start application pool immediately&quot;</li>
+      </ol>
+    </li>
+    <li>Configure the newly created AgileOps application pool.
+      <ol>
+        <li>Right click on the AgileOps object in Application Pools and select Advanced Settings</li>
+        <li>Under the General section, set the drop-down value for &quot;Enable 32-Bit Applications&quot; to &quot;True&quot;.</li>
+        <li>Still under the General section, set the drop-down value for &quot;Start Mode&quot; to &quot;AlwaysRunning&quot;.</li>
+        <li>Lastly, under the Process Model section within Advaned Settings, set the drop-down value for &quot;Identity&quot; to &quot;Network Service&quot;.</li>
+      </ol>
+    </li>
+    <li>Add Applications to the Site (One for each web application).
+      <ol>
+        <li>Expand &quot;Sites&quot; in the Connections pane.</li>
+        <li>Right click on Default Web Site and select &quot;Add Application&quot;.</li>
+        <li>For &quot;Alias&quot;, enter &quot;HMIF&quot; and select &quot;AgileOps&quot; for the Application Pool.</li>
+        <li>Set the &quot;Physical path&quot; value to the fully qualified path to the &quot;HMIF&quot; folder we created and copied over earlier.
+          <ol>
+            <li><em>C:\Program Files (x86)\ProSys, Inc\AgileOps\HMI\HMIF</em></li>
+          </ol>
+        </li>
+        <li>Repeat the steps above for the remaining web applications in the HMI folder.
+          <ol>
+            <li>MCSD</li>
+            <li>AutoDiscovery</li>
+            <li>EventKPI</li>
+            <li>LM</li>
+            <li>DM</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>Ensure the &quot;default.aspx&quot; is the highest priority within each web applications Default Document.
+      <ol>
+        <li>Click on the HMIF Web Application&#39;s base node.</li>
+        <li>Open &quot;Default Document&quot;.</li>
+        <li>Ensure &quot;default.aspx&quot; is at the top of the list. If not, select the object and click &quot;Move up&quot; on the Actions pane to the right.<br/>
+          <em>If prompted with a window for confirmation on moving up, selection &#39;Yes&#39;.</em>
+        </li>
+        <li>Repeat for all web applications.</li>
+      </ol>
+    </li>
+    <li>Ensure .NET Trust levels are set to &quot;Full (internal)&quot; for each web application.
+      <ol>
+        <li>Click on the HMIF Web Application&#39;s base node.</li>
+        <li>Open &quot;.NET Trust Levels&quot;.</li>
+        <li>Set the Trust Level value to &quot;Full (internal)&quot;.</li>
+        <li>Repeat for all web applications.</li>
+      </ol>
+    </li>
+    <li>Ensure that both &quot;Static&quot; and &quot;Dynamic&quot; compression are enabled for each web application.
+      <ol>
+        <li>Click on the HMIF Web Application&#39;s base node.</li>
+        <li>Open &quot;Compression&quot;.</li>
+        <li>Ensure &quot;Static&quot; and &quot;Dynamic&quot; compression are both enabled.</li>
+        <li>Repeat for all web applicaitons.</li>
+      </ol>
+    </li>
+    <li><u>Enable </u>&quot;Windows Authentication&quot; &amp; &quot;ASP.NET Impersonation&quot; and <u>Disable </u>&quot;Anonymous Authentication&quot; for each web application&#39;s <strong>base node</strong>.
+      <ol>
+        <li>Click on the HMIF Web Application&#39;s base node.</li>
+        <li>Open &quot;Authentication&quot;.</li>
+        <li>Right click on &quot;Windows Authentication&quot; and select &quot;Enable&quot;.</li>
+        <li>Right click on &quot;ASP.NET Impersonation&quot; and select &quot;Enable&quot;.</li>
+        <li>Right click on &quot;Anonymous Authentication&quot; and select &quot;Disable&quot;.</li>
+        <li>Repeat for all web applications.</li>
+      </ol>
+    </li>
+    <li><u>Disable</u> &quot;Windows Authentication&quot; and <u>Enable</u> &quot;Anonymous Authentication&quot; for each web application&#39;s <strong>WebServices</strong>.
+      <ol>
+        <li>Expand the HMIF Web Application base node to expose the &quot;WebServices&quot; folder.</li>
+        <li>Double-click on the WebServices folder.</li>
+        <li>Open &quot;Authentication&quot;.</li>
+        <li>Right click on &quot;Windows Authentication&quot; and select &quot;Disable&quot;.</li>
+        <li>Right click on &quot;Anonymous Authentication&quot; and select &quot;Enable&quot;.</li>
+      </ol>
+    </li>
+    <li><u>Enable</u> &quot;Windows Authentication&quot; and <u>Disable</u> &quot;Anonymous Authentication&quot; for the LM web application&#39;s PointWebSvc.asmx object.
+      <ol>
+        <li>Expand the &quot;LM&quot; Web Application, right click on &quot;WebServices&quot;, and select &quot;Switch to content view&quot;.</li>
+        <li>Right click on &quot;PointWebSvc.asmx&quot; and select &quot;Switch to Features View&quot;.</li>
+        <li>Select &quot;Authentication&quot;.</li>
+        <li>Right click on &quot;Windows Authentication&quot; and select &quot;Enable&quot;.</li>
+        <li>Right click on &quot;Anonymouse Authentication&quot; and select &quot;Disable&quot;.</li>
+      </ol>
+    </li>
+    <li>Finally, click on the Application Pools object in the Connections pane and ensure that the &quot;Applications&quot; column for the &quot;AgileOps&quot; entry displays all 6 applications being installed.<br/>
+      <img height="198" src="../assets/images/image12.png" width="651"/>
+    </li>
+  </ol>
+  <p> </p>
+  <h4>Configure AgileOps Configuration Files</h4>
+  <ol class="Decimal">
+    <li>Configure files for AgileOps
+      <ol>
+        <li>Configure HMIF Web Config file.
+          <ol>
+            <li>Navigate to the AgileOps HMIF folder and open the Web.config XML file in Notepad++ (or any other text editor).<br/>
+              <em>C:\Program Files (x86)\ProSys, Inc\AgileOps\HMI\HMIF\Web.config</em>
+            </li>
+            <li>Ensure that the web application service references are added in the &quot;HMIFConfiguration &gt; applicationSources &gt; webServices&quot; object.<br/>
+              <img height="258" src="../assets/images/image (10)1.png" style="cursor: nwse-resize;" width="768"/>
+            </li>
+          </ol>
+        </li>
+        <li>Configure DM Web Config file.
+          <ol>
+            <li>Navigate to the AgileOps DM folder and open the Web.config XML file in Notepad++ (or any other text editor).<br/>
+              <em>C:\Program Files (x86)\ProSys, Inc\AgileOps\HMI\DM\Web.config</em>
+            </li>
+            <li>Check the &quot;connectionString&quot; property. This must have the correct <u>server</u> name, <u>database </u>name, and account credentials.</li>
+          </ol>
+        </li>
+        <li>Configure MCSD Web Config file.
+          <ol>
+            <li>Similar to the step above, navigate to the AgileOps MCSD folder and open the Web.config XM file in Notepad++ (or any other text editor).</li>
+            <li>Check the &quot;connectionString&quot; property. This must have the correct <u>server</u> name, <u>database</u> name, and account credentials.</li>
+          </ol>
+        </li>
+        <li>Configure the EventPKI Config file.
+          <ol>
+            <li>Navigate to the AgileOps EventPKI folder and open the Web.config XML file in Notepad++ (or any other text editor).</li>
+            <li>Check that the properties for &quot;intelligenceServer&quot;, &quot;reportProject&quot;, and &quot;webServer&quot; are valid and configured correctly.</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+  <p> </p>
+  <h4>Configure DCOM settings</h4>
+  <ol class="Decimal">
+    <li>Launch Windows Run.<br/>
+      <em>Windows Key + R</em>
+    </li>
+    <li>Within Windows Run, type in &quot;dcomcnfg&quot; and press Enter.</li>
+    <li>Browse to <em>Console Root &gt; Component Services &gt; Computers &gt; My Computer &gt; COM+ Applications, </em>right click on &quot;AgileOps DeltaV Connections&quot; and select &quot;Properties&quot;.</li>
+    <li>Under the &quot;Identity&quot; tab, select the &quot;This user&quot; radio button, enter in the AOPS user credentials created earlier and Apply the changes.<br/>
+      <img height="440" src="../assets/images/image14.png" width="484"/>
+    </li>
+    <li>You can now close the Component Services window.</li>
+  </ol>
+  <p> </p>
+  <h4>Configure Performance Monitoring</h4>
+  <ol class="Decimal">
+    <li>Under Window&#39;s Administrative Tools, launch the application &quot;Performance Monitor&quot;.</li>
+    <li>Under <em>Performance &gt; Data Collector Sets</em>,<em> </em>right click &quot;User Defined&quot;, and select &quot;New &gt; Data Collector Set&quot;.<br/>
+      <img height="297" src="../assets/images/image18.png" width="483"/>
+    </li>
+    <li> </li>
+  </ol>
+
+</div>
+  <div class="sci-footer">
+    <div class="hor-space-even">
+      <div class="sci-bold" style="vertical-align: bottom">SCI Redux</div>
+    </div>
+  </div>
+
+</div>
+          <div class="RH-LAYOUT-BRS-container" id="rh-brs"></div>
+        </div>
+        <div class="RH-LAYOUT-RIGHTPANEL-container" id="rh-rightpanel"></div>
+      </div>
+    </div>
+  </main>
+  <footer role="contentinfo" class="RH-LAYOUT-FOOTER-container" id="rh-footer"></footer>
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = ".."
+    gCommonRootRelPath = ".."
+    gTopicId = "3.1.0_1"
+  
+//]]></script>
+
+
+  <script src="../template/scripts/topicpage.js"></script>
+  <script src="../whxdata/layoutconfig.js"></script>
+  <script src="../whxdata/brsdata.js"></script>
+  
+    
+      
+          
+
+            
+              
+                  
+
+
+</body></html>
