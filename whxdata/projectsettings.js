@@ -7,7 +7,7 @@ rh._.exports(defaultTopic);
 rh.consts('DEFAULT_TOPIC', encodeURI("DeltaV/DeltaV_Help.htm"));
 rh.consts('HOME_FILEPATH', encodeURI('index.htm'));
 rh.consts('START_FILEPATH', encodeURI('index.htm'));
-rh.consts('HELP_ID', 'd0a9c223-200e-43f9-91af-e88e8d78ee6a' || 'preview');
+rh.consts('HELP_ID', '1fedda9a-e6e5-4b58-8e10-e7f3cb6c1a62' || 'preview');
 rh.consts('LNG_SUBSTR_SEARCH', 0);
 
 model.publish(rh.consts('KEY_LNG_NAME'), "en");
